@@ -1,8 +1,12 @@
 terraform {
   required_providers {
-    aws = {
-      version = "5.31.0"
-      source  = "hashicorp/aws"
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "~>2.0"
+    }
+    azuread = {
+      source  = "hashicorp/azuread"
+      version = "~>2.0"
     }
     hcp = {
       source  = "hashicorp/hcp"
@@ -18,8 +22,8 @@ terraform {
   }
 }
 
-provider "aws" {
-  region = var.region
+provider "azurerm" {
+  features {}
 }
 
 provider "tfe" {}

@@ -21,15 +21,15 @@ resource "hcp_boundary_cluster" "boundary-demo" {
 }
 
 resource "hcp_hvn" "boundary-vault-hvn" {
-  project_id = hcp_project.project.resource_id
+  project_id     = hcp_project.project.resource_id
   hvn_id         = "boundary-vault-demo-hvn"
-  cloud_provider = "aws"
+  cloud_provider = "azure"
   region         = var.region
   cidr_block     = "172.29.16.0/20"
 }
 
 resource "hcp_vault_cluster" "boundary-vault-cluster" {
-  project_id = hcp_project.project.resource_id
+  project_id      = hcp_project.project.resource_id
   cluster_id      = hcp_boundary_cluster.boundary-demo.cluster_id
   hvn_id          = hcp_hvn.boundary-vault-hvn.hvn_id
   tier            = "dev"
